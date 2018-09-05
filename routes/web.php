@@ -23,23 +23,25 @@ Route::post('/', function() {
 
 });
 
+Route::prefix('adm')->group(function () {
 
+	Route::get('/', function () {
 
-Route::get('/adm', function () {
+	   return view('adm.index');
 
-   return view('adm.index');
+	});
 
+	Route::get('/users', function () {
+
+	   return view('adm.user');
+
+	});
+	Route::get('/users/{user}', function ($user) {
+
+	   return view('adm.user', [ 'user' => $user ]);
+
+	});
 });
 
-Route::get('/adm/users', function () {
-
-   return view('adm.user');
-
-});
-Route::get('/adm/users/{user}', function ($user) {
-
-   return view('adm.user', [ 'user' => $user ]);
-
-});
 
 

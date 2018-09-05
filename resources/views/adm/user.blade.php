@@ -1,7 +1,7 @@
 @extends('adm.template_adm')
 
 @section('title-page')
-	adm - Users
+Users
 @endsection
 
 @section('content')
@@ -11,6 +11,9 @@
 
 			@if(isset($user))
 				{{ $user }}
+
+				{!! $user !!}
+
 			@endif
 
 		</div>

@@ -9,7 +9,7 @@
 
   <title>
     @section('title-page')
-    Adm
+      Adm testes
     @show
   </title>
 </head>

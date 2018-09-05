@@ -12,5 +12,34 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
+
 });
+
+Route::post('/', function() {
+
+	return "Esse dado é post";
+
+});
+
+
+
+Route::get('/adm', function () {
+
+   return view('adm.index');
+
+});
+
+Route::get('/adm/users', function () {
+
+   return view('adm.user');
+
+});
+Route::get('/adm/users/{user}', function ($user) {
+
+   return view('adm.user', [ 'user' => $user ]);
+
+});
+
+

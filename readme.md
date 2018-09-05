@@ -1,65 +1,44 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Projeto de acompanhamento das Aulas de Laravel
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Esse será nosso pequeno código usado como exemplo em nossas aulas.
+Não se esqueçam de sempre  verificar a documentação quando estiverem dúvidas: https://laravel.com/docs/5.7
+Estamos usando como base a versão [5.7](https://laravel-news.com/laravel-5-7-is-now-released)
+## Instruções para executar o projeto.
 
-## About Laravel
+### PASSO 01:
+Clone esse repositório e abra a pasta via terminal (Acho que não preciso explicar esse passo :wink:).
+### PASSO 02:
+Com a pasta aberta execute o comando do `composer` para instalar as dependências do projeto.
+``` sh
+composer install
+```
+Aguarde a enquanto o `composer` baixa e as dependências do projeto para a pasta `/Vendor`
+#### PASSO 03:
+Copie o exemplo do arquivo de configuração de  ambiente `.env.exemple` para `.env`:
+```sh
+cp .env.exemple .env
+```
+#### PASSO 04:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+A próxima coisa  é definir sua chave de aplicação para uma `string` aleatória. Normalmente, essa sequência deve ter 32 caracteres. A chave pode ser definida no arquivo de configuração de ambiente `.env` .
+`Se a chave do aplicativo não estiver definida, suas sessões de usuário e outros dados criptografados não serão seguros!`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para gerar use o comando:
+```sh
+ php artisan key:generate
+```
+**Obs.:** O `Artisan` é a interface de linha de comando incluída no Laravel. Ele fornece vários comandos úteis que podem ajudá-lo enquanto você cria seu aplicativo. Para ver uma lista de todos os comandos Artisan disponíveis, você pode usar o comando `list`:
+```sh
+ php artisan list
+```
+Para saber mais sobre o Artisan consulte a documentação: https://laravel.com/docs/5.7/artisan
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+#### PASSO 05:
+Para checarmos nosso projeto podemos usar o `Artisan` novamente para executar o um servidor para você acessar a aplicação. Para isso use o comando:
+```sh
+ php artisan serve
+```
+Isso fará subir um servidor em http://127.0.0.1 na porta 8000.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Passo 06:
+Se não acorreu nenhum erro em algum passo anterior acesse pelo navegador o projeto http://127.0.0.1:8000/

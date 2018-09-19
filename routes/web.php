@@ -36,12 +36,15 @@ Route::prefix('adm')->group(function () {
 	   return view('adm.user');
 
 	});
+
 	Route::get('/users/{user}', function ($user) {
 
 	   return view('adm.user', [ 'user' => $user ]);
 
 	});
 });
-
+Route::prefix('posts')->group(function () {
+	Route::get('/', 'PostsController@index');
+});
 
 

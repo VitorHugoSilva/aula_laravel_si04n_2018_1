@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function index()
+
+   	public function index()
     {
     	return view('posts.index');
+    }
+
+    public function show($id)
+    {
+    	return "O id é {$id}";
     }
 }

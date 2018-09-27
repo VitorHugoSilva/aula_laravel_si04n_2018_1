@@ -45,6 +45,6 @@ Route::prefix('adm')->group(function () {
 });
 Route::prefix('posts')->group(function () {
 	Route::get('/', 'PostsController@index');
+	Route::get('/show/{id}', 'PostsController@show');
 });
-
 

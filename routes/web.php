@@ -44,7 +44,12 @@ Route::prefix('adm')->group(function () {
 	});
 });
 Route::prefix('posts')->group(function () {
-	Route::get('/', 'PostsController@index');
-	Route::get('/show/{id}', 'PostsController@show');
+	Route::get('/', 'PostsController@index')->name('posts.index');
+	Route::get('/create', 'PostsController@create')->name('posts.create');
+	Route::post('/', 'PostsController@store')->name('posts.store');
+	Route::get('/{id}', 'PostsController@show')->name('posts.show');
+	Route::get('/{id}/edit', 'PostsController@edit')->name('posts.edit');
+	Route::put('/{id}', 'PostsController@update')->name('posts.update');
+	Route::delete('/{id}', 'PostsController@destroy')->name('posts.destroy');
 });
 

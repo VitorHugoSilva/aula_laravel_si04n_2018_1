@@ -26,7 +26,7 @@ Pagina de posts
                         </a>
 
                         <a href="{{ route('comments.create',[$post->id]) }}" class="btn btn-primary">
-                        Add comment ({{ $post->comments->count() }})
+                        Add comment
                         </a>                        <a href="{{ route('posts.edit',[$post->id]) }}" class="btn btn-light">Edit</a>
                         <form action="{{ route('posts.destroy',[$post->id]) }}" class="d-inline" method="POST">
                             @method('DELETE')

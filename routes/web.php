@@ -22,6 +22,7 @@ Route::post('/', function() {
 	return "Esse dado é post";
 
 });
+Auth::routes();
 
 Route::prefix('adm')->group(function () {
 
@@ -43,13 +44,25 @@ Route::prefix('adm')->group(function () {
 
 	});
 });
+// Route::prefix('posts')->group(function () {
+// 	Route::get('/', 'PostsController@index')->name('posts.index');
+// 	Route::get('/create', 'PostsController@create')->name('posts.create');
+// 	Route::post('/', 'PostsController@store')->name('posts.store');
+// 	Route::get('/{id}', 'PostsController@show')->name('posts.show');
+// 	Route::get('/{id}/edit', 'PostsController@edit')->name('posts.edit');
+// 	Route::put('/{id}', 'PostsController@update')->name('posts.update');
+// 	Route::delete('/{id}', 'PostsController@destroy')->name('posts.destroy');
+// });
+
+Route::resource('posts', 'PostsController');
+
 Route::prefix('posts')->group(function () {
-	Route::get('/', 'PostsController@index')->name('posts.index');
-	Route::get('/create', 'PostsController@create')->name('posts.create');
-	Route::post('/', 'PostsController@store')->name('posts.store');
-	Route::get('/{id}', 'PostsController@show')->name('posts.show');
-	Route::get('/{id}/edit', 'PostsController@edit')->name('posts.edit');
-	Route::put('/{id}', 'PostsController@update')->name('posts.update');
-	Route::delete('/{id}', 'PostsController@destroy')->name('posts.destroy');
+	Route::get('comments/{post_id}/create', 'CommentController@create')
+	->name('comments.create');
+	Route::post('comments/{post_id}', 'CommentController@store')
+	->name('comments.store');
 });
 
+
+
+Route::get('/home', 'HomeController@index')->name('home');

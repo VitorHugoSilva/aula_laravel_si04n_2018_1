@@ -10,14 +10,30 @@ Pagina de posts - edit
     <form action="{{ route('posts.update', [$post->id]) }}" method="POST">
     	 @method('PUT')
     	 @csrf
-      <div class="form-group">
+            <div class="form-group">
         <label for="">Title</label>
-        <input type="text" name="title" class="form-control"
-        	value="{{ $post->title }}">
+        <input type="text" name="title" class="form-control
+          @if($errors->get('title'))
+            is-invalid
+          @endif"
+          value="{{ old('title',$post->title) }}">
+        @if($errors->get('title'))
+          <div class="invalid-feedback">
+            {{ $errors->get('title')[0] }}
+          </div>
+        @endif
       </div>
        <div class="form-group">
         <label for="">Content</label>
-        <textarea name="content" id="" rows="5" class="form-control">{{ $post->content }}</textarea>
+        <textarea name="content" id="" rows="5" class="form-control
+         @if($errors->get('content'))
+          is-invalid
+          @endif">{{ old('content', $post->content) }}</textarea>
+          @if($errors->get('content'))
+          <div class="invalid-feedback">
+            {{ $errors->get('content')[0] }}
+          </div>
+        @endif
       </div>
       <div class="form-group">
            <input type="submit" class="btn btn-success">

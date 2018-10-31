@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 
 class PostsController extends Controller
@@ -23,10 +24,11 @@ class PostsController extends Controller
 
     public function create()
     {
+
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $post = Post::create($request->only(['title', 'content']));
 
@@ -41,7 +43,7 @@ class PostsController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdatePostRequest $request, $id)
     {
         $post = Post::find($id);
         $post->fill($request->only(['title','content']));

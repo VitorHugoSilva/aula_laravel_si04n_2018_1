@@ -11,11 +11,28 @@ Pagina de posts - Criar
     	 @csrf
       <div class="form-group">
         <label for="">Title</label>
-        <input type="text" name="title" class="form-control">
+        <input type="text" name="title" class="form-control
+          @if($errors->get('title'))
+            is-invalid
+          @endif"
+          value="{{ old('title') }}">
+        @if($errors->get('title'))
+          <div class="invalid-feedback">
+            {{ $errors->get('title')[0] }}
+          </div>
+        @endif
       </div>
        <div class="form-group">
         <label for="">Content</label>
-        <textarea name="content" id="" rows="5" class="form-control"></textarea>
+        <textarea name="content" id="" rows="5" class="form-control
+         @if($errors->get('content'))
+          is-invalid
+          @endif">{{ old('content') }}</textarea>
+          @if($errors->get('content'))
+          <div class="invalid-feedback">
+            {{ $errors->get('content')[0] }}
+          </div>
+        @endif
       </div>
       <div class="form-group">
            <input type="submit" class="btn btn-success">

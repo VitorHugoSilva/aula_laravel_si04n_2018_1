@@ -22,26 +22,23 @@ Route::post('/', function() {
 	return "Esse dado é post";
 
 });
+
 Auth::routes();
 
-Route::prefix('adm')->group(function () {
+Route::prefix('adm')->middleware('auth')->group(function () {
 
 	Route::get('/', function () {
 
 	   return view('adm.index');
 
 	});
+	Route::resource('posts', 'PostsController');
 
-	Route::get('/users', function () {
-
-	   return view('adm.user');
-
-	});
-
-	Route::get('/users/{user}', function ($user) {
-
-	   return view('adm.user', [ 'user' => $user ]);
-
+	Route::prefix('posts')->group(function () {
+	Route::get('comments/{post_id}/create', 'CommentController@create')
+	->name('comments.create');
+	Route::post('comments/{post_id}', 'CommentController@store')
+	->name('comments.store');
 	});
 });
 // Route::prefix('posts')->group(function () {
@@ -54,14 +51,6 @@ Route::prefix('adm')->group(function () {
 // 	Route::delete('/{id}', 'PostsController@destroy')->name('posts.destroy');
 // });
 
-Route::resource('posts', 'PostsController');
-
-Route::prefix('posts')->group(function () {
-	Route::get('comments/{post_id}/create', 'CommentController@create')
-	->name('comments.create');
-	Route::post('comments/{post_id}', 'CommentController@store')
-	->name('comments.store');
-});
 
 
 

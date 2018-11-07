@@ -18,7 +18,6 @@ Comentário do post
     <hr>
     <h1>Comments</h1>
     <ul>
-      
       @foreach($post->comments as $comment)
       <li>{{ $comment->comment }} ({{ $comment->created_at }})</li>
 
@@ -33,7 +32,15 @@ Comentário do post
     	 @csrf
        <div class="form-group">
         <label for="comment">Comment</label>
-        <textarea name="comment" id="comment" rows="5" class="form-control"></textarea>
+        <textarea name="comment" id="comment" rows="5" class="form-control
+        @if($errors->get('comment'))
+            is-invalid
+          @endif" autofocus></textarea>
+          @if($errors->get('comment'))
+          <div class="invalid-feedback">
+            {{ $errors->get('comment')[0] }}
+          </div>
+        @endif
       </div>
       <div class="form-group">
            <input type="submit" class="btn btn-success">

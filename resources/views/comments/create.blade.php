@@ -19,7 +19,25 @@ Comentário do post
     <h1>Comments</h1>
     <ul>
       @foreach($post->comments as $comment)
-      <li>{{ $comment->comment }} ({{ $comment->created_at }})</li>
+      <li>
+        <hr>
+         @if($comment->user)
+          <span class="badge badge-success">
+            {{ $comment->user->name}}
+          </span>
+        @else
+        <span class="badge badge-secondary">
+            No user
+          </span>
+        @endif
+        ({{
+          $comment->created_at->format('d/m/Y - H:i:s')
+        }}):
+        <pre>
+        {{ $comment->comment }}
+        </pre> 
+        <hr>
+      </li>
 
       @endforeach
     </ul>

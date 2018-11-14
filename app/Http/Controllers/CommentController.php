@@ -53,7 +53,10 @@ class CommentController extends Controller
         //     'post_id' => $post_id
         // ])
 
-        $post->comments()->create(['comment' => $request->get('comment')]);
+        $post->comments()->create([
+            'comment' => $request->get('comment'),
+            'user_id' => \Auth::user()->id
+        ]);
 
         return redirect()->route('comments.create', $post_id);
     }

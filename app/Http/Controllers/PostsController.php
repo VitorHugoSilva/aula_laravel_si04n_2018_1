@@ -55,6 +55,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $post->comments()->delete();
         $post->delete();
         return redirect()->route('posts.index');
     }

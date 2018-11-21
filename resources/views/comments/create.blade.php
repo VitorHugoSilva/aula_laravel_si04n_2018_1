@@ -35,7 +35,16 @@ Comentário do post
         }}):
         <pre>
         {{ $comment->comment }}
-        </pre> 
+        </pre>
+         @if($comment->user && $comment->user->id == auth()->user()->id)
+         <form action="{{ route('comments.destroy', $comment->id ) }}" method="POST">
+           @csrf
+           @method('DELETE')
+          <button class="btn btn-danger">
+            Delete
+          </button>
+         </form>
+        @endif
         <hr>
       </li>
 

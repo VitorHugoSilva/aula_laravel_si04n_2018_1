@@ -39,6 +39,8 @@ Route::prefix('adm')->middleware('auth')->group(function () {
 	->name('comments.create');
 	Route::post('comments/{post_id}', 'CommentController@store')
 	->name('comments.store');
+	Route::delete('comments/{comment}', 'CommentController@destroy')
+	->name('comments.destroy');
 	});
 });
 // Route::prefix('posts')->group(function () {
